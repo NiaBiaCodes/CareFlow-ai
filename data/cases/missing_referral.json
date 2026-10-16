@@ -1,0 +1,134 @@
+{
+  "synthetic": true,
+  "snapshot_at": "2026-10-16T16:00:00Z",
+  "patient": {
+    "record_id": "PAT-002",
+    "patient_id": "SYN-P002",
+    "synthetic": true,
+    "name": "Morgan Demo",
+    "date_of_birth": "1986-09-03",
+    "insurance_member_id": "DEMO-MEMBER-002",
+    "payer_name": "Demo Health Plan"
+  },
+  "policy": {
+    "policy_id": "DEMO-POLICY-001",
+    "synthetic": true,
+    "description": "Fictional prior authorization completeness checklist. No coverage or medical necessity decision.",
+    "required_request_fields": [
+      "service_code",
+      "requested_units",
+      "planned_service_date",
+      "diagnosis_code"
+    ],
+    "required_documents": [
+      "signed clinical note for the request encounter",
+      "signed referral for the requested service"
+    ]
+  },
+  "encounters": [
+    {
+      "record_id": "ENC-002-1",
+      "patient_id": "SYN-P002",
+      "occurred_at": "2026-09-30T14:00:00Z",
+      "visit_type": "synthetic outpatient visit"
+    },
+    {
+      "record_id": "ENC-002-2",
+      "patient_id": "SYN-P002",
+      "occurred_at": "2026-10-14T14:00:00Z",
+      "visit_type": "synthetic outpatient visit"
+    }
+  ],
+  "documents": [
+    {
+      "record_id": "NOTE-002-1",
+      "patient_id": "SYN-P002",
+      "encounter_id": "ENC-002-1",
+      "document_type": "clinical_note",
+      "status": "final",
+      "signed": true,
+      "effective_at": "2026-09-30T14:00:00Z",
+      "recorded_at": "2026-09-30T14:20:00Z",
+      "text": "SYNTHETIC TEST NOTE. Chart medication reconciliation: amlodipine 5 mg daily."
+    },
+    {
+      "record_id": "NOTE-002-2",
+      "patient_id": "SYN-P002",
+      "encounter_id": "ENC-002-2",
+      "document_type": "clinical_note",
+      "status": "final",
+      "signed": true,
+      "effective_at": "2026-10-14T14:00:00Z",
+      "recorded_at": "2026-10-14T14:20:00Z",
+      "text": "SYNTHETIC TEST NOTE. Chart medication reconciliation: amlodipine 5 mg daily. Persistent knee discomfort is recorded. Clinician requests a physical therapy evaluation under fictional service DEMO-PT-EVAL. This fixture makes no treatment recommendation."
+    }
+  ],
+  "medication_snapshots": [
+    {
+      "record_id": "MED-002-1",
+      "patient_id": "SYN-P002",
+      "encounter_id": "ENC-002-1",
+      "source_record_id": "NOTE-002-1",
+      "effective_at": "2026-09-30T14:00:00Z",
+      "recorded_at": "2026-09-30T14:20:00Z",
+      "complete_reconciliation": true,
+      "medications": [
+        {
+          "name": "amlodipine",
+          "dose": "5 mg",
+          "frequency": "daily"
+        }
+      ]
+    },
+    {
+      "record_id": "MED-002-2",
+      "patient_id": "SYN-P002",
+      "encounter_id": "ENC-002-2",
+      "source_record_id": "NOTE-002-2",
+      "effective_at": "2026-10-14T14:00:00Z",
+      "recorded_at": "2026-10-14T14:20:00Z",
+      "complete_reconciliation": true,
+      "medications": [
+        {
+          "name": "amlodipine",
+          "dose": "5 mg",
+          "frequency": "daily"
+        }
+      ]
+    }
+  ],
+  "pharmacy_status": [
+    {
+      "record_id": "PHARM-002",
+      "patient_id": "SYN-P002",
+      "status": "not_connected",
+      "recorded_at": "2026-10-16T15:00:00Z",
+      "updates": []
+    }
+  ],
+  "requests": [
+    {
+      "record_id": "REQ-002",
+      "request_id": "DEMO-PA-002",
+      "patient_id": "SYN-P002",
+      "encounter_id": "ENC-002-2",
+      "provider_id": "DEMO-PROVIDER-001",
+      "request_type": "prior_authorization",
+      "service_code": "DEMO-PT-EVAL",
+      "requested_units": 6,
+      "planned_service_date": "2026-10-26",
+      "diagnosis_code": "DEMO-MSK-001",
+      "clinical_note_id": "NOTE-002-2",
+      "referral_id": "REF-002",
+      "recorded_at": "2026-10-16T15:00:00Z"
+    }
+  ],
+  "providers": [
+    {
+      "record_id": "PROV-DEMO-001",
+      "provider_id": "DEMO-PROVIDER-001",
+      "name": "Demo Clinic",
+      "synthetic": true
+    }
+  ]
+}

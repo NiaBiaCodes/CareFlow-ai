@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "careflow-local"
+version = "0.1.0"
+description = "Synthetic hospital chart comparison and fictional prior authorization drafts"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi==0.143.3", "uvicorn==0.54.0", "jinja2==3.1.6",
+  "pydantic==2.14.1", "python-dotenv==1.2.4",
+]
+
+[project.optional-dependencies]
+test = ["httpx==0.28.1", "pytest==9.1.1"]
+
+[tool.setuptools]
+py-modules = ["core"]
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.setuptools.package-data]
+app = ["templates/*.html", "static/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+markers = ["integration: requires a real local SurrealDB instance"]

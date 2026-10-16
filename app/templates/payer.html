@@ -1,0 +1,12 @@
+{% extends "base.html" %}{% block content %}
+<p><a href="/tasks/{{ task.task_id }}">← Return to patient review</a></p><p class="eyebrow">MOCK PAYER PORTAL</p><h1>Prior authorization draft</h1>
+<section class="panel"><h2>{{ task.patient.name }} · {{ task.patient_id }}</h2><p>Task {{ task.task_id }}</p>
+{% if task.validation.errors %}<div class="error">Draft creation blocked: {{ task.validation.errors | join(', ') }}</div>
+{% else %}<form id="payer-form" data-task="{{ task.task_id }}" data-context="{{ task.context_hash }}" data-revision="{{ task.draft_revision }}">
+<input type="hidden" name="task_id" value="{{ task.task_id }}">
+<div class="form-grid">{% for key, value in task.validation.form_fields.items() %}<div><label for="{{ key }}">{{ key | replace('_',' ') }}</label><input id="{{ key }}" name="{{ key }}" value="{{ value }}" {% if key == 'requested_units' %}type="number" min="1" step="1"{% elif key in ['date_of_birth','planned_service_date'] %}type="date"{% else %}type="text"{% endif %} required><small>Source: {% for id in task.validation.field_sources[key] %}<a href="/tasks/{{ task.task_id }}/sources/{{ id }}" target="_blank" rel="noopener">{{ id }}</a> {% endfor %}</small></div>{% endfor %}</div>
+<p class="notice">Values must match server-validated evidence. Editing a field requires a new record review.</p><button data-testid="save-draft" type="submit">Save draft</button></form>{% endif %}
+<p data-testid="draft-status" role="status" aria-live="polite">{% if task.drafts %}Saved draft revision {{ task.draft_revision }} · {{ task.drafts[-1].draft_id }}{% else %}No draft saved{% endif %}</p>
+<p data-testid="mock-receipt">No receipt. Submission unavailable in PR1.</p><button disabled>Submission unavailable</button></section>
+<section class="panel"><h2>Saved draft history</h2>{% for draft in task.drafts %}<details><summary>Revision {{ draft.revision }} · {{ draft.created_at }}</summary><pre>{{ draft | tojson(indent=2) }}</pre></details>{% else %}<p>No saved revisions.</p>{% endfor %}</section>
+{% endblock %}

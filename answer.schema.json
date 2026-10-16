@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CareFlow source backed answer",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["patient_id", "status", "claims", "missing_information"],
+  "properties": {
+    "patient_id": {"type": "string", "pattern": "^SYN-P[0-9]{3}$"},
+    "status": {"type": "string", "enum": ["answered", "insufficient_records", "blocked"]},
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["text", "source_record_ids"],
+        "properties": {
+          "text": {"type": "string", "minLength": 1},
+          "source_record_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+        }
+      }
+    },
+    "missing_information": {"type": "array", "items": {"type": "string"}}
+  }
+}

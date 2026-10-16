@@ -1,0 +1,14 @@
+# Optional integration dependencies. Installed versions must be smoke-tested and locked locally.
+# The offline fixtures, reference planner and tests use only the Python standard library.
+fastapi
+uvicorn
+jinja2
+python-multipart
+python-dotenv
+daytona
+surrealdb
+anchorbrowser
+playwright
+arize-phoenix-otel
+opentelemetry-api
+# Add only the SDK for the model provider you choose.

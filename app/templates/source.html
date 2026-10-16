@@ -1,0 +1,1 @@
+{% extends "base.html" %}{% block content %}<p><a href="/tasks/{{ task_id }}">← Return to patient review</a></p><section class="panel"><p class="eyebrow">SOURCE RECORD</p><h1>{{ source.record_id }}</h1>{% if source.text %}<blockquote>{{ source.text }}</blockquote>{% endif %}<pre>{{ source | tojson(indent=2) }}</pre></section>{% endblock %}

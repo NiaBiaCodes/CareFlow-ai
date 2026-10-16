@@ -1,0 +1,1 @@
+"""Local synthetic CareFlow application."""

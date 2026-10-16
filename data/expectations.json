@@ -1,0 +1,46 @@
+{
+  "happy": {
+    "patient_id": "SYN-P001",
+    "status": "ready_for_review",
+    "errors": [],
+    "medication_change_count": 1
+  },
+  "corrected_referral": {
+    "patient_id": "SYN-P002",
+    "status": "ready_for_review",
+    "errors": [],
+    "medication_change_count": 0
+  },
+  "missing_referral": {
+    "patient_id": "SYN-P002",
+    "status": "blocked",
+    "errors": [
+      "MISSING_REFERRAL"
+    ],
+    "medication_change_count": 0
+  },
+  "wrong_patient": {
+    "patient_id": "SYN-P001",
+    "status": "blocked",
+    "errors": [
+      "PATIENT_MISMATCH"
+    ],
+    "medication_change_count": 0
+  },
+  "conflicting_medication": {
+    "patient_id": "SYN-P001",
+    "status": "blocked",
+    "errors": [
+      "CONFLICTING_MEDICATION_RECORDS"
+    ],
+    "medication_change_count": 0
+  },
+  "missing_member_id": {
+    "patient_id": "SYN-P001",
+    "status": "blocked",
+    "errors": [
+      "MISSING_MEMBER_ID"
+    ],
+    "medication_change_count": 0
+  }
+}
