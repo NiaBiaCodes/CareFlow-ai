@@ -1,5 +1,7 @@
 VIMEO https://vimeo.com/1236658714
 GOOGLE DRIVE VIDEO https://drive.google.com/file/d/1guDKgABLG38cC91iLO002q8sppKGkPI9/view?usp=sharing
+
+(would NOT let me post on devpost)
 # CareFlow integrated synthetic demo
 
 CareFlow preserves PR1 chart review, six scenarios, validated drafts, cited reference comparisons, and SurrealDB history. **Live Daytona + model + Anchor** adds an actual OpenAI call inside Daytona, strict fact validation, Anchor browser actions, clinician approval, simulated submission, Phoenix traces, and explicit cleanup. All records and receipts are fictional; pharmacy fills remain unknown.
