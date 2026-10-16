@@ -1,6 +1,8 @@
 VIMEO https://vimeo.com/1236658714
 GOOGLE DRIVE VIDEO https://drive.google.com/file/d/1guDKgABLG38cC91iLO002q8sppKGkPI9/view?usp=sharing
 
+https://drive.google.com/file/d/1-rDQNqp9p72ef6Cvpquz3gPL4XSlzSdH/view?usp=sharing SLIDES
+
 (would NOT let me post on devpost)
 # CareFlow integrated synthetic demo
 
