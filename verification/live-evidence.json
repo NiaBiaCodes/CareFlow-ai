@@ -1,0 +1,569 @@
+{
+  "verified_at": "2026-10-16T18:29:54.608040+00:00",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "tests": {
+    "application": 74,
+    "real_surreal_tests_included": 3,
+    "original_checks": 8
+  },
+  "tasks": [
+    {
+      "task_id": "6a90653b-58dd-4da8-b352-33ae1acef42a",
+      "patient_id": "SYN-P002",
+      "scenario": "missing_referral",
+      "status": "blocked",
+      "context_hash": "9cfee767609dd2f005ddc00edde265116b962be095dadf7ab5729285c8d58af7",
+      "live_answer": {
+        "answer": {
+          "compared_dates": [
+            "2026-09-30T14:00:00Z",
+            "2026-10-14T14:00:00Z"
+          ],
+          "fills": "unknown",
+          "medications": [
+            {
+              "after": {
+                "dose": "5 mg",
+                "frequency": "daily",
+                "name": "amlodipine"
+              },
+              "before": {
+                "dose": "5 mg",
+                "frequency": "daily",
+                "name": "amlodipine"
+              },
+              "name": "amlodipine",
+              "source_record_ids": [
+                "MED-002-1",
+                "MED-002-2"
+              ]
+            }
+          ],
+          "missing_information": [
+            "Pharmacy fills unknown"
+          ],
+          "patient_id": "SYN-P002",
+          "pharmacy_source_ids": [
+            "PHARM-002"
+          ],
+          "pharmacy_status": "unavailable",
+          "status": "answered"
+        },
+        "label": "Live model result \u00b7 validated against source records",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "response_id": "resp_067528fa5c58c3a4016ad267c884dc87d2a1b7ba9573d067a6"
+      },
+      "draft_revision": 0,
+      "draft_hash": null,
+      "approval": null,
+      "receipt": null,
+      "telemetry": {
+        "exported_spans": 6,
+        "status": "exported",
+        "trace_id": "061929e61bf920457351835d2ce918c4"
+      },
+      "submission_telemetry": null,
+      "executions": [
+        {
+          "browser_sessions": [],
+          "execution_id": "39da38bc-e9ee-4f02-a27b-b105eef1e97e",
+          "finished_at": "2026-10-16T18:02:10.887714+00:00",
+          "journal_recovery_failed": false,
+          "operation": "draft",
+          "sandbox_cleanup": "deleted",
+          "sandbox_id": "2056e499-89d9-4712-9a27-6fd1c930945e",
+          "started_at": "2026-10-16T18:01:53.174737+00:00"
+        },
+        {
+          "browser_sessions": [],
+          "execution_id": "92d68d19-2e49-4eaf-840b-50152a56c626",
+          "finished_at": "2026-10-16T18:02:57.066459+00:00",
+          "journal_recovery_failed": false,
+          "operation": "draft",
+          "sandbox_cleanup": "deleted",
+          "sandbox_id": "62c0dabd-a250-44ed-8af5-d819702c79e1",
+          "started_at": "2026-10-16T18:02:46.737288+00:00"
+        },
+        {
+          "browser_sessions": [],
+          "execution_id": "a7ba5ba0-bf1a-4cd3-bc69-89b9c9f89a90",
+          "finished_at": "2026-10-16T18:05:12.620737+00:00",
+          "journal_recovery_failed": false,
+          "operation": "draft",
+          "sandbox_cleanup": "deleted",
+          "sandbox_id": "f95a41f7-9368-4b6c-a09c-c4e0884eaaa4",
+          "started_at": "2026-10-16T18:04:44.014275+00:00"
+        },
+        {
+          "browser_sessions": [],
+          "execution_id": "1efc2967-c2a9-4f7e-94a8-31d272ed088a",
+          "finished_at": "2026-10-16T18:07:13.194838+00:00",
+          "journal_recovery_failed": false,
+          "operation": "draft",
+          "sandbox_cleanup": "deleted",
+          "sandbox_id": "cdeaf45c-9ec0-4c77-8fb4-32b84fe9a38e",
+          "started_at": "2026-10-16T18:06:49.208793+00:00",
+          "worker_telemetry": {
+            "exported_spans": 0,
+            "status": "export_failed",
+            "trace_id": "061929e61bf920457351835d2ce918c4"
+          }
+        }
+      ],
+      "draft_ids": [],
+      "event_count": 26,
+      "submission_event_count": 0,
+      "validation_errors": [
+        "MISSING_REFERRAL"
+      ]
+    },
+    {
+      "task_id": "7c166f9a-7ae2-4320-9059-a1ec41d669bd",
+      "patient_id": "SYN-P002",
+      "scenario": "corrected_referral",
+      "status": "submitted_to_mock",
+      "context_hash": "2aa97ae2030607435d3aec239fc67fdf1491ca7a14fa9d3aa17a4b0423485593",
+      "live_answer": {
+        "answer": {
+          "compared_dates": [
+            "2026-09-30T14:00:00Z",
+            "2026-10-14T14:00:00Z"
+          ],
+          "fills": "unknown",
+          "medications": [
+            {
+              "after": {
+                "dose": "5 mg",
+                "frequency": "daily",
+                "name": "amlodipine"
+              },
+              "before": {
+                "dose": "5 mg",
+                "frequency": "daily",
+                "name": "amlodipine"
+              },
+              "name": "amlodipine",
+              "source_record_ids": [
+                "MED-002-1",
+                "MED-002-2"
+              ]
+            }
+          ],
+          "missing_information": [
+            "Pharmacy fills unknown"
+          ],
+          "patient_id": "SYN-P002",
+          "pharmacy_source_ids": [
+            "PHARM-002"
+          ],
+          "pharmacy_status": "unavailable",
+          "status": "answered"
+        },
+        "label": "Live model result \u00b7 validated against source records",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "response_id": "resp_092329544c8f1742016ad26c2a211487d2bb5be75b992d5042"
+      },
+      "draft_revision": 1,
+      "draft_hash": "c0542e63fee3819eb4035224d77f06f9f79942cb0b407a909531c5c735a08d83",
+      "approval": {
+        "approved_at": "2026-10-16T18:26:13.030742+00:00",
+        "approved_by": "local-demo-clinician",
+        "binding": {
+          "context_hash": "2aa97ae2030607435d3aec239fc67fdf1491ca7a14fa9d3aa17a4b0423485593",
+          "context_revision": "2aa97ae2030607435d3aec239fc67fdf1491ca7a14fa9d3aa17a4b0423485593",
+          "draft_hash": "c0542e63fee3819eb4035224d77f06f9f79942cb0b407a909531c5c735a08d83",
+          "draft_revision": 1,
+          "patient_id": "SYN-P002",
+          "task_id": "7c166f9a-7ae2-4320-9059-a1ec41d669bd"
+        },
+        "binding_hash": "abab8f638bac389441e6a2169c12ca2056ed3cb4c6a5766c832ab8c3fcdc784b"
+      },
+      "receipt": {
+        "approval_binding_hash": "abab8f638bac389441e6a2169c12ca2056ed3cb4c6a5766c832ab8c3fcdc784b",
+        "created_at": "2026-10-16T18:26:39.201966+00:00",
+        "draft_hash": "c0542e63fee3819eb4035224d77f06f9f79942cb0b407a909531c5c735a08d83",
+        "draft_revision": 1,
+        "idempotency_key": "7c166f9a-7ae2-4320-9059-a1ec41d669bd:1",
+        "label": "Simulated receipt",
+        "patient_id": "SYN-P002",
+        "receipt_id": "SIM-abab8f638bac389441e6a216",
+        "task_id": "7c166f9a-7ae2-4320-9059-a1ec41d669bd"
+      },
+      "telemetry": {
+        "exported_spans": 7,
+        "status": "exported",
+        "trace_id": "d971364ac77674a3c0e8ade67aa7479a"
+      },
+      "submission_telemetry": {
+        "exported_spans": 4,
+        "status": "exported",
+        "trace_id": "3c0df815953105ccc787326b321eecb7"
+      },
+      "executions": [
+        {
+          "browser_sessions": [],
+          "execution_id": "ad31d56f-6780-4c0c-94fc-a320545d00ad",
+          "operation": "draft",
+          "sandbox_cleanup": "deleted",
+          "sandbox_id": "5c3f3c85-4f37-4ae1-8d80-b5c2e1e457a1",
+          "started_at": "2026-10-16T18:09:37.002573+00:00"
+        },
+        {
+          "browser_sessions": [],
+          "execution_id": "61cd667e-ad2c-4cc4-8e27-43c99c81551e",
+          "failed_worker_telemetry": {
+            "exported_spans": 0,
+            "status": "export_failed",
+            "trace_id": "b9234de046f5687254d655c962df11e3"
+          },
+          "finished_at": "2026-10-16T18:12:47.458187+00:00",
+          "journal_recovery_failed": false,
+          "operation": "draft",
+          "sandbox_cleanup": "deleted",
+          "sandbox_id": "3447bcf9-9140-44db-90f2-98ec6f9a341a",
+          "started_at": "2026-10-16T18:12:22.939213+00:00",
+          "worker_telemetry": {
+            "exported_spans": 0,
+            "status": "export_failed",
+            "trace_id": "b9234de046f5687254d655c962df11e3"
+          }
+        },
+        {
+          "browser_sessions": [],
+          "execution_id": "871bb944-cc3f-4b9b-b3ad-4022a8c6b596",
+          "finished_at": "2026-10-16T18:13:41.856125+00:00",
+          "journal_recovery_failed": false,
+          "operation": "connectivity_probe",
+          "sandbox_cleanup": "deleted",
+          "sandbox_id": "d3d1e8ee-d491-48d3-9c72-808531a5b39e",
+          "started_at": "2026-10-16T18:13:33.848172+00:00"
+        },
+        {
+          "browser_sessions": [],
+          "execution_id": "5d9ca82f-b60d-47f4-b7d3-412e93045e94",
+          "finished_at": "2026-10-16T18:15:43.996306+00:00",
+          "journal_recovery_failed": false,
+          "operation": "connectivity_probe",
+          "sandbox_cleanup": "deleted",
+          "sandbox_id": "ce90cd61-ca90-4142-b660-c67ad3183163",
+          "started_at": "2026-10-16T18:15:30.584042+00:00"
+        },
+        {
+          "browser_sessions": [],
+          "execution_id": "74080415-a526-41c8-a6ea-719e83affe40",
+          "finished_at": "2026-10-16T18:16:27.387733+00:00",
+          "journal_recovery_failed": false,
+          "operation": "connectivity_probe",
+          "sandbox_cleanup": "deleted",
+          "sandbox_id": "712c559a-e158-4a79-939d-9195a87517bf",
+          "started_at": "2026-10-16T18:16:20.200012+00:00"
+        },
+        {
+          "browser_sessions": [],
+          "execution_id": "bffdea12-4f46-4893-bd8b-fbf94162508e",
+          "operation": "standalone_anchor_connectivity_probe",
+          "sandbox_cleanup": "not_created_confirmed",
+          "sandbox_id": null,
+          "started_at": "2026-10-16T18:20:34.771286+00:00"
+        },
+        {
+          "browser_sessions": [],
+          "execution_id": "51f53f7d-7745-4b6d-a6e3-e5fc7c2ecacc",
+          "operation": "standalone_anchor_connectivity_probe",
+          "sandbox_cleanup": "not_created_confirmed",
+          "sandbox_id": null,
+          "started_at": "2026-10-16T18:21:07.919951+00:00"
+        },
+        {
+          "browser_sessions": [
+            {
+              "cleanup": "ended",
+              "recording_reference": "anchor-session:cb0735cf-d350-4bfd-a698-6bb873b80044",
+              "session_id": "cb0735cf-d350-4bfd-a698-6bb873b80044"
+            }
+          ],
+          "execution_id": "c10b5f53-6e8f-4535-8394-542ae707bd67",
+          "operation": "standalone_anchor_connectivity_probe",
+          "sandbox_cleanup": "not_created_confirmed",
+          "sandbox_id": null,
+          "started_at": "2026-10-16T18:24:53.216632+00:00"
+        },
+        {
+          "browser_sessions": [],
+          "execution_id": "2dc98b39-9dfa-4ee1-82b7-8e70c1351cd9",
+          "finished_at": "2026-10-16T18:25:09.681636+00:00",
+          "journal_recovery_failed": false,
+          "operation": "connectivity_probe",
+          "sandbox_cleanup": "deleted",
+          "sandbox_id": "cd621556-95e8-4d24-a926-b4e8c60c4d43",
+          "started_at": "2026-10-16T18:24:59.711156+00:00"
+        },
+        {
+          "browser_sessions": [
+            {
+              "cleanup": "ended",
+              "recording_reference": "anchor-session:ea1523ef-92c4-43c1-8d0a-684ddc849d91",
+              "session_id": "ea1523ef-92c4-43c1-8d0a-684ddc849d91"
+            }
+          ],
+          "browser_telemetry": {
+            "exported_spans": 1,
+            "status": "exported",
+            "trace_id": "d971364ac77674a3c0e8ade67aa7479a"
+          },
+          "draft_id": "7fe52ffb-d982-4f15-b33e-3326783d024f",
+          "execution_id": "fc19cdf6-ca9f-40d9-b0d8-ab321368d563",
+          "finished_at": "2026-10-16T18:26:03.384747+00:00",
+          "journal_recovery_failed": false,
+          "operation": "draft",
+          "sandbox_cleanup": "deleted",
+          "sandbox_id": "462f922e-0070-4968-be91-542e6e445a76",
+          "started_at": "2026-10-16T18:25:33.025320+00:00",
+          "verified_session_id": "ea1523ef-92c4-43c1-8d0a-684ddc849d91",
+          "verified_values": {
+            "clinical_note_id": "NOTE-002-2",
+            "date_of_birth": "1986-09-03",
+            "diagnosis_code": "DEMO-MSK-001",
+            "insurance_member_id": "DEMO-MEMBER-002",
+            "patient_id": "SYN-P002",
+            "patient_name": "Morgan Demo",
+            "planned_service_date": "2026-10-26",
+            "provider_id": "DEMO-PROVIDER-001",
+            "referral_id": "REF-002",
+            "requested_units": 6,
+            "service_code": "DEMO-PT-EVAL"
+          },
+          "verified_values_hash": "716b2076e86860795dea466ffbef527d36cc838cae337b0a46955ee2428d4315",
+          "worker_telemetry": {
+            "exported_spans": 1,
+            "status": "exported",
+            "trace_id": "d971364ac77674a3c0e8ade67aa7479a"
+          }
+        },
+        {
+          "approval_binding_hash": "abab8f638bac389441e6a2169c12ca2056ed3cb4c6a5766c832ab8c3fcdc784b",
+          "browser_sessions": [
+            {
+              "cleanup": "ended",
+              "recording_reference": "anchor-session:1dc51895-670c-4da9-b3b8-695bbc538ce5",
+              "session_id": "1dc51895-670c-4da9-b3b8-695bbc538ce5"
+            }
+          ],
+          "execution_id": "7391ddd2-164b-4fef-83ab-9d3087433916",
+          "finished_at": "2026-10-16T18:26:44.693124+00:00",
+          "journal_recovery_failed": false,
+          "operation": "submit",
+          "receipt_id": "SIM-abab8f638bac389441e6a216",
+          "sandbox_cleanup": "deleted",
+          "sandbox_id": "40096a68-5a6d-43ba-9191-613e36267aeb",
+          "started_at": "2026-10-16T18:26:21.234325+00:00",
+          "verified_session_id": "1dc51895-670c-4da9-b3b8-695bbc538ce5",
+          "verified_values_hash": "716b2076e86860795dea466ffbef527d36cc838cae337b0a46955ee2428d4315",
+          "worker_telemetry": {
+            "exported_spans": 1,
+            "status": "exported",
+            "trace_id": "85c465056a82f920d526b2b63fbcc256"
+          }
+        }
+      ],
+      "draft_ids": [
+        "7fe52ffb-d982-4f15-b33e-3326783d024f"
+      ],
+      "event_count": 59,
+      "submission_event_count": 1,
+      "validation_errors": []
+    },
+    {
+      "task_id": "7aeb5bb2-e244-4f82-8458-ef5905220a54",
+      "patient_id": "SYN-P001",
+      "scenario": "happy",
+      "status": "submitted_to_mock",
+      "context_hash": "e0a8d13b44be05213168d1de2865fe7aa7f3b7b940eef17ed04b1afd64bd7acd",
+      "live_answer": {
+        "answer": {
+          "compared_dates": [
+            "2026-09-30T14:00:00Z",
+            "2026-10-14T14:00:00Z"
+          ],
+          "fills": "unknown",
+          "medications": [
+            {
+              "after": {
+                "dose": "20 mg",
+                "frequency": "daily",
+                "name": "lisinopril"
+              },
+              "before": {
+                "dose": "10 mg",
+                "frequency": "daily",
+                "name": "lisinopril"
+              },
+              "name": "lisinopril",
+              "source_record_ids": [
+                "MED-001-1",
+                "MED-001-2"
+              ]
+            },
+            {
+              "after": {
+                "dose": "500 mg",
+                "frequency": "twice daily",
+                "name": "metformin"
+              },
+              "before": {
+                "dose": "500 mg",
+                "frequency": "twice daily",
+                "name": "metformin"
+              },
+              "name": "metformin",
+              "source_record_ids": [
+                "MED-001-1",
+                "MED-001-2"
+              ]
+            }
+          ],
+          "missing_information": [
+            "Pharmacy fills unknown"
+          ],
+          "patient_id": "SYN-P001",
+          "pharmacy_source_ids": [
+            "PHARM-001"
+          ],
+          "pharmacy_status": "unavailable",
+          "status": "answered"
+        },
+        "label": "Live model result \u00b7 validated against source records",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "response_id": "resp_0030ad87e7bf1923016ad26caed43487d2991e9c74fa3365dd"
+      },
+      "draft_revision": 1,
+      "draft_hash": "836407b3961cc23984711a64325fd28976a471a55d60142dc2d44b6b0136d972",
+      "approval": {
+        "approved_at": "2026-10-16T18:28:54.631859+00:00",
+        "approved_by": "local-demo-clinician",
+        "binding": {
+          "context_hash": "e0a8d13b44be05213168d1de2865fe7aa7f3b7b940eef17ed04b1afd64bd7acd",
+          "context_revision": "e0a8d13b44be05213168d1de2865fe7aa7f3b7b940eef17ed04b1afd64bd7acd",
+          "draft_hash": "836407b3961cc23984711a64325fd28976a471a55d60142dc2d44b6b0136d972",
+          "draft_revision": 1,
+          "patient_id": "SYN-P001",
+          "task_id": "7aeb5bb2-e244-4f82-8458-ef5905220a54"
+        },
+        "binding_hash": "fbd84e0f104c16b5a19ea3d61159f9ed144450f2f4fbb45383c3a0e172ec4ed9"
+      },
+      "receipt": {
+        "approval_binding_hash": "fbd84e0f104c16b5a19ea3d61159f9ed144450f2f4fbb45383c3a0e172ec4ed9",
+        "created_at": "2026-10-16T18:29:43.511294+00:00",
+        "draft_hash": "836407b3961cc23984711a64325fd28976a471a55d60142dc2d44b6b0136d972",
+        "draft_revision": 1,
+        "idempotency_key": "7aeb5bb2-e244-4f82-8458-ef5905220a54:1",
+        "label": "Simulated receipt",
+        "patient_id": "SYN-P001",
+        "receipt_id": "SIM-fbd84e0f104c16b5a19ea3d6",
+        "task_id": "7aeb5bb2-e244-4f82-8458-ef5905220a54"
+      },
+      "telemetry": {
+        "exported_spans": 7,
+        "status": "exported",
+        "trace_id": "8c5b29236490168224e19d367e36e4b7"
+      },
+      "submission_telemetry": {
+        "exported_spans": 4,
+        "status": "exported",
+        "trace_id": "8349d7d46aa0a1d43d250d3fadbf97ba"
+      },
+      "executions": [
+        {
+          "browser_sessions": [
+            {
+              "cleanup": "ended",
+              "recording_reference": "anchor-session:e003fd4c-6e17-48c3-ba33-8794b056a4b2",
+              "session_id": "e003fd4c-6e17-48c3-ba33-8794b056a4b2"
+            }
+          ],
+          "browser_telemetry": {
+            "exported_spans": 1,
+            "status": "exported",
+            "trace_id": "8c5b29236490168224e19d367e36e4b7"
+          },
+          "draft_id": "71a09a77-95e2-4898-81d4-f88d2df59d55",
+          "execution_id": "8654cade-2ae0-4838-88fc-4dc476097cd6",
+          "finished_at": "2026-10-16T18:28:15.545494+00:00",
+          "journal_recovery_failed": false,
+          "operation": "draft",
+          "sandbox_cleanup": "deleted",
+          "sandbox_id": "824219fd-a246-4930-ad26-d98206a9cebe",
+          "started_at": "2026-10-16T18:27:40.936300+00:00",
+          "verified_session_id": "e003fd4c-6e17-48c3-ba33-8794b056a4b2",
+          "verified_values": {
+            "clinical_note_id": "NOTE-001-2",
+            "date_of_birth": "1978-04-12",
+            "diagnosis_code": "DEMO-MSK-001",
+            "insurance_member_id": "DEMO-MEMBER-001",
+            "patient_id": "SYN-P001",
+            "patient_name": "Avery Demo",
+            "planned_service_date": "2026-10-26",
+            "provider_id": "DEMO-PROVIDER-001",
+            "referral_id": "REF-001",
+            "requested_units": 6,
+            "service_code": "DEMO-PT-EVAL"
+          },
+          "verified_values_hash": "784dfd2da97c0305e7475dcd2090b969fe1eedfe7f32ced0e7a6045452bf5f09",
+          "worker_telemetry": {
+            "exported_spans": 1,
+            "status": "exported",
+            "trace_id": "8c5b29236490168224e19d367e36e4b7"
+          }
+        },
+        {
+          "approval_binding_hash": "fbd84e0f104c16b5a19ea3d61159f9ed144450f2f4fbb45383c3a0e172ec4ed9",
+          "browser_sessions": [
+            {
+              "cleanup": "ended",
+              "recording_reference": "anchor-session:c2b8127d-6213-4d90-8335-fb45fd66e880",
+              "session_id": "c2b8127d-6213-4d90-8335-fb45fd66e880"
+            }
+          ],
+          "execution_id": "cf05b870-65b3-4a6e-b183-07b2412f7392",
+          "finished_at": "2026-10-16T18:29:47.653773+00:00",
+          "journal_recovery_failed": false,
+          "operation": "submit",
+          "receipt_id": "SIM-fbd84e0f104c16b5a19ea3d6",
+          "sandbox_cleanup": "deleted",
+          "sandbox_id": "cd214419-1b92-4fd7-a68f-b40d318e7934",
+          "started_at": "2026-10-16T18:29:29.267908+00:00",
+          "verified_session_id": "c2b8127d-6213-4d90-8335-fb45fd66e880",
+          "verified_values_hash": "784dfd2da97c0305e7475dcd2090b969fe1eedfe7f32ced0e7a6045452bf5f09",
+          "worker_telemetry": {
+            "exported_spans": 1,
+            "status": "exported",
+            "trace_id": "8349d7d46aa0a1d43d250d3fadbf97ba"
+          }
+        }
+      ],
+      "draft_ids": [
+        "71a09a77-95e2-4898-81d4-f88d2df59d55"
+      ],
+      "event_count": 26,
+      "submission_event_count": 1,
+      "validation_errors": []
+    }
+  ],
+  "provider_cleanup": [
+    {
+      "task_id": "6a90653b-58dd-4da8-b352-33ae1acef42a",
+      "remaining_daytona_sandboxes": 0,
+      "remaining_anchor_sessions": 0
+    },
+    {
+      "task_id": "7c166f9a-7ae2-4320-9059-a1ec41d669bd",
+      "remaining_daytona_sandboxes": 0,
+      "remaining_anchor_sessions": 0
+    },
+    {
+      "task_id": "7aeb5bb2-e244-4f82-8458-ef5905220a54",
+      "remaining_daytona_sandboxes": 0,
+      "remaining_anchor_sessions": 0
+    }
+  ]
+}

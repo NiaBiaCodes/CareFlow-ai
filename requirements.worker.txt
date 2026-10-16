@@ -1,0 +1,8 @@
+# Same versions inspected locally. No full application or database client in the sandbox.
+openai==3.31.0
+httpx==0.28.1
+pydantic==2.14.1
+anchorbrowser==1.0.1
+playwright==1.64.0
+opentelemetry-sdk==1.45.1
+opentelemetry-exporter-otlp-proto-http==1.45.1

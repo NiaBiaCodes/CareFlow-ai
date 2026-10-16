@@ -1,0 +1,6 @@
+services:
+  phoenix:
+    image: arizephoenix/phoenix@sha256:c542e7de1dc1fdd0f938de337d44ebefa7266e91391eed6e7978523d7f6e1f2f
+    ports:
+      - "127.0.0.1:6006:6006"
+    restart: unless-stopped

@@ -34,6 +34,16 @@ class MemoryRepository:
     def get_task(self, task_id):
         return copy.deepcopy(self.store.tasks[task_id])
 
+    def update_task(self, task, evt, expected_version):
+        with self.store.lock:
+            if self.store.tasks[task["task_id"]].get("version", 0) != expected_version:
+                raise ConcurrentWrite()
+            self.store.tasks[task["task_id"]] = copy.deepcopy(task)
+            self.store.events[task["task_id"]].append(copy.deepcopy(evt))
+
+    def submit_task(self, task, receipt, evt, expected_version):
+        self.update_task(task, evt, expected_version)
+
     def list_tasks(self, patient_id=None):
         fields = {"task_id", "patient_id", "scenario", "status", "draft_revision", "created_at", "updated_at"}
         return [copy.deepcopy({k: v for k, v in t.items() if k in fields})
@@ -48,7 +58,8 @@ class MemoryRepository:
     def save_draft(self, task, draft, event, expected_revision):
         with self.store.lock:
             current = self.store.tasks[task["task_id"]]
-            if current["draft_revision"] != expected_revision or current["context_hash"] != task["context_hash"]:
+            if (current["draft_revision"] != expected_revision or current["context_hash"] != task["context_hash"]
+                    or current.get("version", 0) != task.get("version", 1)-1):
                 raise ConcurrentWrite()
             self.store.tasks[task["task_id"]] = copy.deepcopy(task)
             self.store.drafts.setdefault(task["task_id"], []).append(copy.deepcopy(draft))

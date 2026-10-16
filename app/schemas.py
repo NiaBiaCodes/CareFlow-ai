@@ -24,6 +24,7 @@ class CreateTask(Input):
     scenario: Scenario | None = None
     question: Literal[QUESTION] = QUESTION
     task_type: Literal["prior_authorization"] = "prior_authorization"
+    execution_mode: Literal["reference", "live"] = "reference"
 
 
 class FormValues(Input):
@@ -45,4 +46,26 @@ class SaveDraft(Input):
     patient_id: StrictStr
     context_hash: StrictStr
     expected_revision: StrictInt = Field(ge=0)
+    values: FormValues
+
+
+class BrowserEvent(Input):
+    kind: Literal["browser_created", "fields_verified", "browser_closed", "browser_cleanup_pending"]
+    session_id: StrictStr = Field(min_length=1, max_length=200)
+    values: FormValues | None = None
+
+
+class ApproveDraft(Input):
+    context_hash: StrictStr
+    draft_revision: StrictInt = Field(gt=0)
+    draft_hash: StrictStr
+    nonce: StrictStr
+
+
+class SubmitDraft(Input):
+    task_id: StrictStr
+    patient_id: StrictStr
+    context_hash: StrictStr
+    draft_revision: StrictInt = Field(gt=0)
+    draft_hash: StrictStr
     values: FormValues

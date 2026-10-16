@@ -118,6 +118,19 @@ class SurrealWorkflowRepository:
             COMMIT TRANSACTION;
         """, {"tid": task["task_id"], "task": task, "events": events})
 
+    def update_task(self, task, evt, expected_version):
+        self.client.query("""
+            BEGIN TRANSACTION;
+            LET $current = (SELECT * FROM type::thing('workflow_run', $tid))[0];
+            IF $current.version != NONE AND $current.version != $expected {
+                THROW 'CAREFLOW_CONCURRENT_WRITE';
+            };
+            UPDATE type::thing('workflow_run', $tid) CONTENT $task;
+            CREATE type::thing('workflow_event', $eid) CONTENT $event;
+            COMMIT TRANSACTION;
+        """, {"tid": task["task_id"], "expected": expected_version, "task": task,
+              "event": evt, "eid": evt["event_id"]})
+
     def get_task(self, task_id):
         rows = self.client.query("SELECT * FROM type::thing('workflow_run', $tid);", {"tid": task_id})[0]
         if not rows:
@@ -144,7 +157,8 @@ class SurrealWorkflowRepository:
             BEGIN TRANSACTION;
             LET $current = (SELECT * FROM type::thing('workflow_run', $tid))[0];
             IF $current.draft_revision != $expected OR $current.context_hash != $hash
-                OR $current.patient_id != $pid OR $current.status NOT IN ['ready_for_review', 'draft_saved'] {
+                OR ($current.version != NONE AND $current.version != $version)
+                OR $current.patient_id != $pid OR $current.status NOT IN ['ready_for_review', 'draft_saved', 'approved'] {
                 THROW 'CAREFLOW_CONCURRENT_WRITE';
             };
             UPDATE type::thing('workflow_run', $tid) CONTENT $task;
@@ -153,7 +167,24 @@ class SurrealWorkflowRepository:
             COMMIT TRANSACTION;
         """, {"tid": task["task_id"], "pid": task["patient_id"], "hash": task["context_hash"],
               "expected": expected_revision, "task": task, "did": draft["draft_id"],
+              "version": task.get("version", 1)-1,
               "draft": draft, "eid": event["event_id"], "event": event})
+
+    def submit_task(self, task, receipt, evt, expected_version):
+        self.client.query("""
+            BEGIN TRANSACTION;
+            LET $current = (SELECT * FROM type::thing('workflow_run', $tid))[0];
+            IF $current.version != $version OR $current.status != 'submission_running'
+                OR $current.approval.binding_hash != $binding OR $current.draft_hash != $draft_hash {
+                THROW 'CAREFLOW_CONCURRENT_WRITE';
+            };
+            CREATE type::thing('mock_receipt', $rid) CONTENT $receipt;
+            UPDATE type::thing('workflow_run', $tid) CONTENT $task;
+            CREATE type::thing('workflow_event', $eid) CONTENT $event;
+            COMMIT TRANSACTION;
+        """, {"tid": task["task_id"], "version": expected_version, "binding": receipt["approval_binding_hash"],
+              "draft_hash": task["draft_hash"], "rid": receipt["idempotency_key"], "receipt": receipt,
+              "task": task, "eid": evt["event_id"], "event": evt})
 
 
 class SurrealRepository(SurrealPatientRepository, SurrealWorkflowRepository):

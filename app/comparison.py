@@ -1,7 +1,11 @@
 """Deterministic comparison of complete synthetic reconciliations."""
 from collections import defaultdict
 
-from core import at
+from datetime import datetime
+
+
+def at(value):
+    return datetime.fromisoformat(value.replace("Z", "+00:00"))
 
 
 def compare_medications(bundle):

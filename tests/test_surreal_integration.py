@@ -75,3 +75,17 @@ def test_real_atomic_compare_and_swap(database):
     assert sorted(code for code, _ in results) == [201, 409], results
     assert len(repo.get_drafts(task["task_id"])) == 1
     assert len(repo.get_events(task["task_id"])) == 3
+
+
+def test_real_approval_and_single_receipt_transaction(database):
+    from .test_approval import verified_draft, approve, submission
+    settings, repo = database
+    wf, tid = verified_draft(repo, settings)
+    approve(wf, tid)
+    request, access = submission(wf, tid)
+    first = wf.submit(tid, request, access)
+    assert wf.submit(tid, request, access) == first
+    fresh = SurrealRepository(settings)
+    assert fresh.get_task(tid)["receipt"] == first
+    receipts = fresh.client.query("SELECT * FROM mock_receipt WHERE task_id = $tid;", {"tid": tid})[0]
+    assert len(receipts) == 1
